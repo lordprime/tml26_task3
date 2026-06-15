@@ -1,0 +1,18 @@
+# Model weights
+*.pt
+model*.pt
+
+# Logs and temp files
+runlogs/
+*.log
+*.err
+*.out
+
+# Condor / HPC files
+*.sub
+.condor*
+.docker_*
+
+# Other
+__pycache__/
+*.pyc
