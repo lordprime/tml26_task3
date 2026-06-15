@@ -24,7 +24,7 @@ import copy
 
 
 
-# ================= Reproducibility =================
+# Reproducibility
 
 SEED = 42
 
@@ -46,7 +46,7 @@ if torch.cuda.is_available():
 
 
 
-# ================= Hyperparameters =================
+# Hyperparameters
 
 MODEL_ARCH    = 'resnet50'
 
@@ -108,7 +108,7 @@ print(f"Model: {MODEL_ARCH}")
 
 
 
-# ================= Augmentations =================
+# Augmentations
 
 class Cutout:
 
@@ -170,7 +170,7 @@ class AugmentedDataset(Dataset):
 
 
 
-# ================= AWP (Wu et al., NeurIPS 2020) =================
+# AWP (Adversarial Weight Perturbation)
 
 AWP_EPS = 1e-20
 
@@ -288,7 +288,7 @@ class TradesAWP:
 
 
 
-# ================= Model =================
+# Model
 
 def build_model(arch, num_classes):
 
@@ -316,7 +316,7 @@ def build_model(arch, num_classes):
 
 
 
-# ================= PGD Attack (Madry et al., ICLR 2018) =================
+# PGD Attack
 
 def pgd_attack(model, x, y, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS):
 
@@ -352,7 +352,7 @@ def pgd_attack(model, x, y, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS):
 
 
 
-# ================= TRADES Inner Loop (Zhang et al., ICML 2019) =================
+# TRADES Inner Loop
 
 def trades_perturb(model, x_natural, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS):
 
@@ -403,7 +403,7 @@ def trades_perturb(model, x_natural, eps=EPS, step_size=STEP_SIZE, num_steps=NUM
 
 
 
-# ================= Phase 1: Standard PGD-AT Loss =================
+# Phase 1: Standard PGD-AT Loss
 
 def pgd_at_loss(model, x, y, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS):
 
@@ -433,7 +433,7 @@ def pgd_at_loss(model, x, y, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS):
 
 
 
-# ================= Phase 2+: TRADES Loss =================
+# Phase 2+: TRADES Loss
 
 def trades_loss(model, x, y, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS, beta=BETA):
 
@@ -471,7 +471,7 @@ def trades_loss(model, x, y, eps=EPS, step_size=STEP_SIZE, num_steps=NUM_STEPS, 
 
 
 
-# ================= Evaluation =================
+# Evaluation helpers
 
 @torch.no_grad()
 
@@ -523,7 +523,7 @@ def evaluate_robust(model, loader, eps=EPS, alpha=STEP_SIZE, iters=EVAL_STEPS):
 
 
 
-# ================= Learning Rate Schedule =================
+# Learning Rate Schedule
 
 def get_lr(epoch):
 
@@ -547,7 +547,7 @@ def get_lr(epoch):
 
 
 
-# ================= Main =================
+# Main training script
 
 def main():
 
@@ -1008,4 +1008,3 @@ def main():
 if __name__ == "__main__":
 
     main()
-
