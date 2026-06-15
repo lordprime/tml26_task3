@@ -1,0 +1,26 @@
+universe = docker
+docker_image = pytorch/pytorch:2.3.1-cuda12.1-cudnn8-devel
+
+executable = /bin/bash
+# Note: Ensure the path matches where you cloned the Task 3 files.
+# The PyTorch docker image already contains torch, torchvision, and numpy, so no pip installs are strictly needed here unless you add custom libraries.
+arguments = "-c 'cd /home/atml_team028/tml26_task3 && /opt/conda/bin/python task_template.py'"
+
+output = runlogs/train.$(ClusterId).$(ProcId).out
+error  = runlogs/train.$(ClusterId).$(ProcId).err
+log    = runlogs/train.$(ClusterId).log
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+# CRITICAL: We need to pull the saved model weights out of the container
+transfer_output_files = model.pt
+
+request_GPUs = 1
+request_CPUs = 12
+request_memory = 32G
+
+requirements = UidDomain == "cs.uni-saarland.de"
++WantGPUHomeMounted = true
++WantScratchMounted = true
+
+queue 1

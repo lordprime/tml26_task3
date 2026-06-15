@@ -1,0 +1,51 @@
+000 (164601.000.000) 2026-06-07 19:01:47 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1036681_845d>
+...
+040 (164601.000.000) 2026-06-07 21:40:28 Finished transferring input files
+...
+001 (164601.000.000) 2026-06-07 21:40:29 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching8@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_db1fcb33 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1473287"
+	Cpus = 10
+	Disk = 663177137
+	GPUs = 1
+	GPUs_GPU_db1fcb33 = [ Id = "GPU-db1fcb33"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "db1fcb33-1a58-e296-d47c-fdee81cb603e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:91:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+006 (164601.000.000) 2026-06-07 21:40:37 Image size of job updated: 1250
+	267  -  MemoryUsage of job (MB)
+	273500  -  ResidentSetSize of job (KB)
+...
+006 (164601.000.000) 2026-06-07 21:45:38 Image size of job updated: 1405
+	1405  -  MemoryUsage of job (MB)
+	1439108  -  ResidentSetSize of job (KB)
+...
+040 (164601.000.000) 2026-06-08 00:30:23 Started transferring output files
+...
+021 (164601.000.000) 2026-06-08 00:30:23 Error from starter on teaching8@idun.hpc.uni-saarland.de:
+	STARTER at 10.143.248.12 failed to send file(s) to <10.143.248.60:9618>: |Error: 1 total failures: first failure: reading from file /raid/condor/lib/condor/execute/dir_1473287/model.pt: (errno 2) No such file or directory; SHADOW failed to receive file(s) from <10.143.248.12:42081>
+	Code 13 Subcode 2
+...
+004 (164601.000.000) 2026-06-08 00:30:23 Job was evicted. Code 12 Subcode 2
+	(0) CPU times
+		Usr 0 02:48:36, Sys 0 00:05:40  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Transfer output files failure at execution point teaching8@idun.hpc.uni-saarland.de while sending files to access point conduit. Details: 1 total failures: first failure: reading from file /raid/condor/lib/condor/execute/dir_1473287/model.pt: (errno 2) No such file or directory
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        8        10 
+	   Disk (KB)            :    28        1250 663177137 
+	   GPUs                 :     0.98        1         1 "GPU-db1fcb33"
+	   GpusMemory (MB)      :   913                       
+	   Memory (MB)          :  1405       16384     64480 
+	   TimeExecute (s)      : 10194                       
+	   TimeSlotBusy (s)     : 10195                       
+...
+012 (164601.000.000) 2026-06-08 00:30:23 Job was held.
+	Transfer output files failure at execution point teaching8@idun.hpc.uni-saarland.de while sending files to access point conduit. Details: 1 total failures: first failure: reading from file /raid/condor/lib/condor/execute/dir_1473287/model.pt: (errno 2) No such file or directory
+	Code 12 Subcode 2
+...
+009 (164601.000.000) 2026-06-08 10:13:58 Job was aborted.
+	via condor_rm (by user atml_team028)
+...
